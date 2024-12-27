@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Nest</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Submit Form</h1>
+  <form action="/submit" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <h2>Stored Data</h2>
+  <ul>
+    <% if (formData && formData.length > 0) { %>
+      <% formData.forEach(data => { %>
+        <li>
+          <strong>Name:</strong> <%= data.name || 'N/A' %> |
+          <strong>Email:</strong> <%= data.email || 'N/A' %> |
+          <strong>Created At:</strong> 
+          <%= data.createdAt ? new Date(data.createdAt).toLocaleString('en-GB', { dateStyle: 'short', timeStyle: 'short' }) : 'N/A' %>
+        </li>
+      <% }); %>
+    <% } else { %>
+      <p>No data available.</p>
+    <% } %>
+    
+    
+  </ul>
+</body>
+</html>
