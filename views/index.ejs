@@ -24,14 +24,18 @@
           <strong>Name:</strong> <%= data.name || 'N/A' %> |
           <strong>Email:</strong> <%= data.email || 'N/A' %> |
           <strong>Created At:</strong> 
-          <%= data.createdAt ? new Date(data.createdAt).toLocaleString('en-GB', { dateStyle: 'short', timeStyle: 'short' }) : 'N/A' %>
+          <%= data.createdAt ? new Date(data.createdAt).toLocaleString('en-GB', { dateStyle: 'short', timeStyle: 'short', hourCycle: 'h12' }) : 'N/A' %>
+
         </li>
       <% }); %>
     <% } else { %>
       <p>No data available.</p>
     <% } %>
-    
-    
   </ul>
+
+  
+  <footer>
+    <p>Created with ❤️ by Anaan</p>
+  </footer>
 </body>
 </html>
